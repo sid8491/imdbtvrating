@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head lang="en">
     <meta charset="UTF-8">
     <title>Show Details</title>
@@ -8,24 +8,43 @@
 {% include 'show_rating/header.html' %}
 <div class="container">
     <h1>{{ title }}</h1>
+    {% if 'Type' not in detail %}
 
-    <h3>IMDB id : {{ detail.imdbID }}</h3>
+        <h3>IMDB id : {{ detail.imdbID }}</h3>
 
-    <h3>Rating : {{ detail.imdbRating }}</h3>
+        <h3>Rating : {{ detail.imdbRating }}</h3>
 
-    <h3>Votes : {{ detail.imdbVotes }}</h3>
+        <h3>Votes : {{ detail.imdbVotes }}</h3>
 
-    <h3>Total Seasons : {{ detail.totalSeasons }}</h3>
+        <h3>Total Seasons : {{ detail.totalSeasons }}</h3>
 
-    <h3>Running Since : {{ detail.Year }}</h3>
+        <h3>Running Since : {{ detail.Year }}</h3>
 
-    <h3>Release Date : {{ detail.Released }}</h3>
+        <h3>Release Date : {{ detail.Released }}</h3>
 
-    <h3>Link : <a href="https://{{ detail.Link }}"> {{ detail.Link }}</a></h3>
+        <h3>Link : <a href="https://{{ detail.Link }}"> {{ detail.Link }}</a></h3>
 
-    <h3>Story : {{ detail.Plot }}</h3>
+        <h3>Story : {{ detail.Plot }}</h3>
 
-    <h3><img src="{{ detail.Poster }}"> <a href="{{ detail.Poster }}">Poster</a></h3>
+        <h3><img src="{{ detail.Poster }}"> <a href="{{ detail.Poster }}">Poster</a></h3>
+
+    {% else %}
+        <h3><span class="label label-danger"> We think it's a Movie not a TV Show.</span><br><br>
+        Please check the details below :</h3>
+        <h3>IMDB id : {{ detail.imdbID }}</h3>
+
+        <h3>Rating : {{ detail.imdbRating }}</h3>
+
+        <h3>Votes : {{ detail.imdbVotes }}</h3>
+
+        <h3>Running Since : {{ detail.Year }}</h3>
+
+        <h3>Release Date : {{ detail.Released }}</h3>
+
+        <h3>Link : <a href="https://{{ detail.Link }}"> {{ detail.Link }}</a></h3>
+
+        <h3>Story : {{ detail.Plot }}</h3>
+    {% endif %}
 </div>
 </body>
 </html>

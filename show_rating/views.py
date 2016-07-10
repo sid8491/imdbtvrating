@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import Http404
+from django.http import HttpResponse, Http404
 from django.contrib.admin.views.decorators import staff_member_required
 from .models import ShowDetail
 from show_rating.logic import showdetails as sd
@@ -13,20 +13,33 @@ def show(request):
 
 def show_detail(request, show_name):
     try:
-        useless = ShowDetail.objects.get(title=show_name)
+        # checkfromdb = ShowDetail.objects.get(title=show_name)
         show_name = string.capwords(show_name)
-        context = {
-            'detail': sd.getshowdetails(show_name),
-            'title': show_name
-        }
-        return render(request, 'show_rating/details.html', context)
+        detail = sd.getshowdetails(show_name)
+        if 'Error' not in detail:
+            context = {
+                'detail': detail,
+                'title': show_name,
+            }
+            return render(request, 'show_rating/details.html', context)
+        else:
+            if 'Type' in detail:
+                context = {
+                    'detail': detail,
+                    'title': show_name,
+                }
+                return render(request, 'show_rating/details.html', context)
+            else:
+                raise Http404(detail['Error'])
     except ShowDetail.DoesNotExist:
-        raise Http404("Wrong show")
+        raise Http404(detail['Error'])
 
 
 def updateshow(request):
     context = {'all_details': ShowDetail.objects.all()}
     return render(request, 'some.html', context)
+
+
 updateshow = staff_member_required(updateshow)
 
 
