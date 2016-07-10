@@ -15,5 +15,3 @@ class SuggestionAdmin(admin.ModelAdmin):
 
 admin.site.register(HireMe, HireMeAdmin)
 admin.site.register(Suggestion, SuggestionAdmin)
-
-# new line
