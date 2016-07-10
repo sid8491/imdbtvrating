@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Show Analyzer</title>
+</head>
+<body>
+
+{% include 'show_rating/header.html' %}
+
+<div class="jumbotron">
+    <div class="container">
+        <h1>Hey, folks!</h1>
+
+        <p>Welcome to Show Analyzer.<br>
+            Here you can check the rating trend of a TV show, visualize how
+            well (or not well) it's been doing since it's release, which was the best season,
+            best episodes etc etc.<br>
+            So keep calm, and look up your favourite show!</p>
+        <p><a class="btn btn-primary btn-lg" href="{% url 'show' %}" role="button">TV Shows »</a></p>
+    </div>
+</div>
+</body>
+{#{% include 'show_rating/footer.html' %}#}
+</html>

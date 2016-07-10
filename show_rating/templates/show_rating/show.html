@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Shows</title>
+</head>
+<body>
+{% include 'show_rating/header.html' %}
+<ul>
+{%  for show in all_shows %}
+    <li><h3><a href="{% url 'show_detail' show.title %}">{{ show.title }}</a> </h3> </li>
+{% endfor %}
+</ul>
+</body>
+</html>
