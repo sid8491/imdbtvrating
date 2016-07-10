@@ -48,7 +48,7 @@ def updateshowget(request):
         show1 = get_object_or_404(ShowDetail, title=request.POST['Show'])
     except Exception as e:
         print(e)
-    context = sd.getshow(str(show1))
+    context = sd.getshowdetails(str(show1))
     show1.imdb_id = context['imdbID']
     show1.rating = context['imdbRating']
     show1.raters = context['imdbVotes']

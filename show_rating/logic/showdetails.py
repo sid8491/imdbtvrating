@@ -38,8 +38,3 @@ def getshowdetails(showname):
         }
     return context
 
-
-    # for show details page, called from views->show_detail
-    # def getshowdetails(showname):
-    # context = getshow(showname)
-    # return context
