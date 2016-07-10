@@ -1,10 +1,9 @@
-from django.shortcuts import render, get_object_or_404, HttpResponse
+from django.shortcuts import render, get_object_or_404
 from django.http import Http404
-from .models import ShowDetail
 from django.contrib.admin.views.decorators import staff_member_required
-
-import requests
-import json
+from .models import ShowDetail
+from show_rating.logic import showdetails as sd
+import string
 
 
 def show(request):
@@ -14,9 +13,11 @@ def show(request):
 
 def show_detail(request, show_name):
     try:
-        detail = ShowDetail.objects.get(title=show_name)
+        useless = ShowDetail.objects.get(title=show_name)
+        show_name = string.capwords(show_name)
         context = {
-            'detail': detail
+            'detail': sd.getshowdetails(show_name),
+            'title': show_name
         }
         return render(request, 'show_rating/details.html', context)
     except ShowDetail.DoesNotExist:
@@ -34,7 +35,7 @@ def updateshowget(request):
         show1 = get_object_or_404(ShowDetail, title=request.POST['Show'])
     except Exception as e:
         print(e)
-    context = getshow(str(show1))
+    context = sd.getshow(str(show1))
     show1.imdb_id = context['imdbID']
     show1.rating = context['imdbRating']
     show1.raters = context['imdbVotes']
@@ -50,21 +51,5 @@ def updateshowget(request):
     return updateshow(request)
 
 
-def getshow(showname):
-    # search by omdb api
-    url = "http://www.omdbapi.com/?t=" + showname
-    s_detail = json.loads(requests.get(url).text)
-    context = {
-        'imdbID': s_detail['imdbID'],
-        'imdbRating': s_detail['imdbRating'],
-        'imdbVotes': s_detail['imdbVotes'],
-        'totalSeasons': s_detail['totalSeasons'],
-        'Year': s_detail['Year'],
-        'Released': s_detail['Released'],
-        'Plot': s_detail['Plot'],
-        'Link': 'www.imdb.com/title/' + s_detail['imdbID'] + '/',
-        'Poster': s_detail['Poster'],
-    }
-    return context
 
 

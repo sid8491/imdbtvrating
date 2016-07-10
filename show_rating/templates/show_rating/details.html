@@ -2,34 +2,30 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Shows</title>
+    <title>Show Details</title>
 </head>
 <body>
 {% include 'show_rating/header.html' %}
 <div class="container">
-    <h1>{{ detail.title }}</h1>
+    <h1>{{ title }}</h1>
 
-    <h3>{{ detail.imdb_id }}</h3>
+    <h3>IMDB id : {{ detail.imdbID }}</h3>
 
-    <h3>Rating : {{ detail.rating }}</h3>
+    <h3>Rating : {{ detail.imdbRating }}</h3>
 
-    <h3>Votes : {{ detail.raters }}</h3>
+    <h3>Votes : {{ detail.imdbVotes }}</h3>
 
-    <h3>Total Seasons : {{ detail.total_seasons }}</h3>
+    <h3>Total Seasons : {{ detail.totalSeasons }}</h3>
 
-    <h3>Running Since : {{ detail.year }}</h3>
+    <h3>Running Since : {{ detail.Year }}</h3>
 
-    <h3>Release Date : {{ detail.release }}</h3>
+    <h3>Release Date : {{ detail.Released }}</h3>
 
-<<<<<<< HEAD
-    <h3>Link : <a href="https://{{ detail.link }}"> {{ detail.link }}</a></h3>
-=======
-    <h3>Link : <a href="https://{{ detail.link }}'"> {{ detail.link }}</a></h3>
->>>>>>> ec7d5176e80b6b2503f2ddca94bb4dc82f767899
+    <h3>Link : <a href="https://{{ detail.Link }}"> {{ detail.Link }}</a></h3>
 
-    <h3>Story : {{ detail.story }}</h3>
+    <h3>Story : {{ detail.Plot }}</h3>
 
-    <h3><img src="{{ detail.poster }}"> <a href="{{ detail.poster }}">Poster</a></h3>
+    <h3><img src="{{ detail.Poster }}"> <a href="{{ detail.Poster }}">Poster</a></h3>
 </div>
 </body>
 </html>
