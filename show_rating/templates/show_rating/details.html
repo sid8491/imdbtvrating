@@ -26,11 +26,30 @@
 
         <h3>Story : {{ detail.Plot }}</h3>
 
-        <h3><img src="{{ detail.Poster }}"> <a href="{{ detail.Poster }}">Poster</a></h3>
+        <table class="table table-striped table-bordered table-hover">
+            <tr>
+                <th>Season</th>
+                <th>Episode</th>
+                <th>Title</th>
+                <th>Director</th>
+                <th>Rating</th>
+                <th>Votes</th>
+            </tr>
+            {% for ep in detail.episode_dict %}
+                <tr>
+                    <td>{{ ep.Season }}</td>
+                    <td>{{ ep.Episode }}</td>
+                    <td>{{ ep.Title }}</td>
+                    <td>{{ ep.Director }}</td>
+                    <td>{{ ep.imdbRating }}</td>
+                    <td>{{ ep.imdbVotes }}</td>
+                </tr>
+            {% endfor %}
+        </table>
 
     {% else %}
         <h3><span class="label label-danger"> We think it's a Movie not a TV Show.</span><br><br>
-        Please check the details below :</h3>
+            Please check the details below :</h3>
         <h3>IMDB id : {{ detail.imdbID }}</h3>
 
         <h3>Rating : {{ detail.imdbRating }}</h3>
@@ -44,6 +63,7 @@
         <h3>Link : <a href="https://{{ detail.Link }}"> {{ detail.Link }}</a></h3>
 
         <h3>Story : {{ detail.Plot }}</h3>
+
     {% endif %}
 </div>
 </body>
