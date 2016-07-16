@@ -140,14 +140,14 @@ CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
         'LOCATION': '/var/tmp/django_cache',
-        'TIMEOUT': 86400,
+        'TIMEOUT': 518400,  # 6 days - 6*24*60*60
         'OPTIONS': {
             'MAX_ENTRIES': 1000
         }
     }
 }
 
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE_CLASSES += [
     'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.cache.FetchFromCacheMiddleware',

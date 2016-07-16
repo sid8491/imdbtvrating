@@ -10,7 +10,7 @@
 {% for i in context1 %}
     {{ i.name }}
     {{ i.summary }}
-    {{ i.code }}
+    {{ i.code |safe }}
     {{ i.coded_on }}
 {% endfor %}
 
