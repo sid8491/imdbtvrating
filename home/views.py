@@ -1,11 +1,10 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse
-from .models import HireMe, Suggestion
+from .models import HireMe, Suggestion, Projects
 
 
 def home(request):
-    # pass
     return render(request, 'home/home.html')
 
 
@@ -24,7 +23,16 @@ def hiremesubmit(request):
 
 
 def projects(request):
-    return render(request, 'home/home.html')
+    context = {
+        'context1': Projects.objects.all()
+    }
+    return render(request, 'home/projects.html', context)
+
+
+def projects_details(request):
+    pass
+    # try:
+        # checkfromdb = ShowDetail.objects.get(title=project_name)
 
 
 def suggestions(request):

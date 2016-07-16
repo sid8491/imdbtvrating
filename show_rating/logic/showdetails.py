@@ -1,5 +1,6 @@
 import requests
 import json
+import pandas as pd
 
 
 def getshowdetails(showname):
@@ -51,11 +52,12 @@ def getshowdetails(showname):
     return context
 
 
-def getseasondetails():
-    pass
+def series_trend(detail):
+    x = pd.DataFrame.from_dict(detail)
+    x.index += 1
+    # x = x.set_index('Episode')
+    # plot = plot([Scatter(x, y)], output_type='div')
+    return x
 
 
-
-def getepisodedetails():
-    pass
 

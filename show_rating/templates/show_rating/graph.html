@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Graph</title>
+</head>
+<body>
+{% include 'show_rating/header.html' %}
+{#{% for i in detail.index %}#}
+{#    {{ i }} - <br> #}
+{#{% endfor %}#}
+{#{{ rating_list }}#}
+{{ div_scatterplot |safe }}
+<br>
+{{ div_barplot |safe }}
+</body>
+</html>

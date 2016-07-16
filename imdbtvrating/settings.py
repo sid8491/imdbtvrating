@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'show_rating.apps.ShowRatingConfig',
-    'home.apps.HomeConfig'
+    'home.apps.HomeConfig',
+    'tinymce'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -123,8 +124,31 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# TEMPLATE_DIRS = (
-#     os.path.join(BASE_DIR, 'templates'),
-#     'home',
-# )
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
+# TINYMCE_JS_URL = os.path.join(STATIC_URL, 'plugins/tinymce/tinymce.min.js')
+# TINYMCE_DEFAULT_CONFIG = {
+# 'plugins': 'table, spellchecker, paste, searchreplace',
+# 'theme': "advanced",
+# 'cleanup_on_startup ': True,
+# 'custom_undo_redo_levels': 10,
+# }
+# TINYMCE_SPELLCHECKER = True
+# TINYMCE_COMPRESSOR = True
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache',
+        'TIMEOUT': 86400,
+        'OPTIONS': {
+            'MAX_ENTRIES': 1000
+        }
+    }
+}
+
+MIDDLEWARE_CLASSES = [
+    'django.middleware.cache.UpdateCacheMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
+]
