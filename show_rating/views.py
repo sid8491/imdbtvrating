@@ -19,11 +19,22 @@ def show_detail(request, show_name):
         show_name = string.capwords(show_name)
         detail = sd.getshowdetails(show_name)
         if 'Error' not in detail:
-            # my_plot_div = sd.series_trend(detail)
+            series_trend = sd.series_trend(detail['episode_dict'])
+            scatterplot = plot([Scatter(
+                x=series_trend.index,
+                y=series_trend['imdbRating'],
+                mode='markers', marker=dict(size=10, color='rgb(255, 65, 54)'),
+                text=('S' + series_trend['Season'] + 'E' + series_trend['Episode']))],
+                output_type='div')
+            barplot = plot([Bar(
+                x=series_trend['Season'],
+                y=series_trend['imdbRating'], text=(series_trend['imdbRating']))],
+                output_type='div')
             context = {
                 'detail': detail,
                 'title': show_name,
-                # 'div_placeholder': my_plot_div,
+                'div_scatterplot': scatterplot,
+                'div_barplot': barplot,
             }
             return render(request, 'show_rating/details.html', context)
         else:
@@ -59,7 +70,6 @@ def updateshowget(request):
     show1.story = context['Plot']
     show1.link = context['Link']
     show1.poster = context['Poster']
-
     # show.link = 'www.' + show.title.lower().replace(" ", "") + '.com'
     show1.save()
     return updateshow(request)

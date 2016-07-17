@@ -55,8 +55,6 @@ def getshowdetails(showname):
 def series_trend(detail):
     x = pd.DataFrame.from_dict(detail)
     x.index += 1
-    # x = x.set_index('Episode')
-    # plot = plot([Scatter(x, y)], output_type='div')
     return x
 
 

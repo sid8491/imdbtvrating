@@ -10,7 +10,9 @@
     <h1>{{ title }}</h1>
     {% if 'Type' not in detail %}
 
-{#        {{ div_placeholder |safe}}#}
+        {{ div_scatterplot |safe}}
+        <br>
+        {{ div_barplot |safe }}
 
         <h3>IMDB id : {{ detail.imdbID }}</h3>
 
