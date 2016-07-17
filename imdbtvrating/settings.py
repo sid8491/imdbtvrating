@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'show_rating.apps.ShowRatingConfig',
     'home.apps.HomeConfig',
-    'tinymce'
+    'django_markdown',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -125,6 +125,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
+MARKDOWN_EDITOR_SKIN = 'simple'
 
 # TINYMCE_JS_URL = os.path.join(STATIC_URL, 'plugins/tinymce/tinymce.min.js')
 # TINYMCE_DEFAULT_CONFIG = {

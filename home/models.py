@@ -1,6 +1,5 @@
 from django.db import models
-from tinymce.models import HTMLField
-from tinymce.widgets import TinyMCE
+from django_markdown.models import MarkdownField
 from django import forms
 
 
@@ -28,10 +27,14 @@ class Suggestion(models.Model):
 class Projects(models.Model):
     name = models.CharField(max_length=255)
     summary = models.TextField(null=True, blank=True)
-    code = HTMLField(null=True, blank=True)
+    code = MarkdownField()
     coded_on = models.DateField(null=True, blank=True)
-    new_code = forms.CharField(widget=TinyMCE(attrs={'cols': 80, 'rows': 30}))
 
     def __str__(self):
         return str(self.name)
+
+    class Meta:
+        verbose_name = "Project Entry"
+        verbose_name_plural = "Project Entries"
+        ordering = ['-coded_on']
 

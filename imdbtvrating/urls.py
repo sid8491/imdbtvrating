@@ -23,7 +23,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('home.urls')),
     url(r'^show/', include('show_rating.urls')),
-    url(r'^tinymce/', include('tinymce.urls')),
+    url(r'^markdown/', include('django_markdown.urls')),
 ]
 
 admin.site.site_header = "Show Analyzer Admin"
