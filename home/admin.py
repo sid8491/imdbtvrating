@@ -3,6 +3,7 @@ from .models import HireMe, Suggestion, Projects
 from django_markdown.admin import MarkdownModelAdmin
 # Register your models here.
 
+
 class HireMeAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'number', 'comments', 'submit_date')
     list_filter = ('submit_date',)

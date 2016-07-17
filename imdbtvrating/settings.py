@@ -128,21 +128,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 MARKDOWN_EDITOR_SKIN = 'simple'
 
-# TINYMCE_JS_URL = os.path.join(STATIC_URL, 'plugins/tinymce/tinymce.min.js')
-# TINYMCE_DEFAULT_CONFIG = {
-# 'plugins': 'table, spellchecker, paste, searchreplace',
-# 'theme': "advanced",
-# 'cleanup_on_startup ': True,
-# 'custom_undo_redo_levels': 10,
-# }
-# TINYMCE_SPELLCHECKER = True
-# TINYMCE_COMPRESSOR = True
-
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
         'LOCATION': '/var/tmp/django_cache',
-        'TIMEOUT': 518400,  # 6 days - 6*24*60*60
+        'TIMEOUT': 60,  # 6 days - 6*24*60*60 = 518400
         'OPTIONS': {
             'MAX_ENTRIES': 1000
         }

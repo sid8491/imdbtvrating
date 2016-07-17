@@ -19,6 +19,8 @@ def getshowdetails(showname):
                 for j in season_dict[i]['Episodes']:
                     url_episode = url_season + "&Episode=" + j['Episode']
                     episode_detail = json.loads(requests.get(url_episode).text)
+                    episode_detail['Season'] = str(episode_detail['Season']).zfill(2)
+                    episode_detail['Episode'] = str(episode_detail['Episode']).zfill(2)
                     episode_dict.append(episode_detail)
             context = {
                 'imdbID': s_detail['imdbID'],
