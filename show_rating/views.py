@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, HttpResponseRedirect
+from django.core.urlresolvers import reverse
 from django.http import HttpResponse, Http404
 from django.contrib.admin.views.decorators import staff_member_required
 from .models import ShowDetail
@@ -75,3 +76,6 @@ def updateshowget(request):
     return updateshow(request)
 
 
+def search_show(request):
+    # return show_detail(request, request.GET['q'])
+    return HttpResponseRedirect(reverse('show_detail', kwargs={'show_name': request.GET['q']}))
