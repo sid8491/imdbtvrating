@@ -1,6 +1,5 @@
 from django.contrib import admin
 from .models import HireMe, Suggestion, Projects
-from django_markdown.admin import MarkdownModelAdmin
 # Register your models here.
 
 
@@ -14,7 +13,7 @@ class SuggestionAdmin(admin.ModelAdmin):
     list_filter = ('submit_date',)
 
 
-class ProjectsAdmin(MarkdownModelAdmin):
+class ProjectsAdmin(admin.ModelAdmin):
     list_display = ('name', 'summary', 'code', 'coded_on')
 
 

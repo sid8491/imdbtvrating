@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'show_rating.apps.ShowRatingConfig',
     'home.apps.HomeConfig',
-    'django_markdown',
+    'ckeditor',
+    # 'ckeditor_uploader',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -131,7 +132,7 @@ MARKDOWN_EDITOR_SKIN = 'simple'
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': '/var/tmp/django_cache',
+        'LOCATION': 'fil:///var/tmp/django_cache',
         'TIMEOUT': 60,  # 6 days - 6*24*60*60 = 518400
         'OPTIONS': {
             'MAX_ENTRIES': 1000
@@ -144,3 +145,14 @@ MIDDLEWARE_CLASSES += [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.cache.FetchFromCacheMiddleware',
 ]
+
+CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
+# CKEDITOR_UPLOAD_PATH = "uploads/"
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'height': 150,
+        # 'width': 300,
+    },
+}

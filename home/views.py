@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse
 from .models import HireMe, Suggestion, Projects
+from django.views.decorators.cache import never_cache
 
 
 def home(request):
@@ -22,6 +23,7 @@ def hiremesubmit(request):
     return HttpResponseRedirect(reverse('hireme'))
 
 
+@never_cache
 def projects(request):
     context = {
         'context1': Projects.objects.all()

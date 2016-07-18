@@ -1,6 +1,5 @@
 from django.db import models
-from django_markdown.models import MarkdownField
-from django import forms
+from ckeditor.fields import RichTextField
 
 
 class HireMe(models.Model):
@@ -27,7 +26,7 @@ class Suggestion(models.Model):
 class Projects(models.Model):
     name = models.CharField(max_length=255)
     summary = models.TextField(null=True, blank=True)
-    code = MarkdownField()
+    code = RichTextField()
     coded_on = models.DateField(null=True, blank=True)
 
     def __str__(self):
