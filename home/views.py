@@ -26,15 +26,17 @@ def hiremesubmit(request):
 @never_cache
 def projects(request):
     context = {
-        'context1': Projects.objects.all()
+        'context': Projects.objects.all()
     }
     return render(request, 'home/projects.html', context)
 
 
-def projects_details(request):
-    pass
-    # try:
-        # checkfromdb = ShowDetail.objects.get(title=project_name)
+@never_cache
+def projects_details(request, project_name):
+    context = {
+        'code': Projects.objects.filter(name=project_name).values_list('code')
+    }
+    return render(request, 'home/projects_details.html', context)
 
 
 def suggestions(request):

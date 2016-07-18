@@ -6,13 +6,32 @@
 </head>
 <body>
 {% include 'show_rating/header.html' %}
+<div class="container-fluid">
+    <div class="row jumbotron">
+        <div class="col col-lg-2"></div>
+        <div class="col col-lg-8">
+            <h1>Projects</h1>
 
-{% for i in context1 %}
-    {{ i.name }}
-    {{ i.summary }}
-    {{ i.code |safe }}
-    {{ i.coded_on }}
-{% endfor %}
+            <p>These are some small projects I have worked on recently.</p>
+        </div>
+        <div class="col col-lg-2"></div>
+    </div>
+    {% for i in context %}
+        <div class="row blog">
+            <div class="col col-lg-2"></div>
+            <div class="col col-lg-8">
+                <h3>{{ i.name }}</h3>
+                <span>{{ i.coded_on }}</span>
+                <br>
+                {{ i.summary }}
+                <br><br>
+                <a class="btn btn-primary" href="{% url 'projects_details' i.name %}">Read More</a>
+
+            </div>
+            <div class="col col-lg-2"></div>
+        </div><br><br><br>
+    {% endfor %}
+</div>
 
 </body>
 </html>

@@ -14,7 +14,7 @@ class SuggestionAdmin(admin.ModelAdmin):
 
 
 class ProjectsAdmin(admin.ModelAdmin):
-    list_display = ('name', 'summary', 'code', 'coded_on')
+    list_display = ('name', 'summary', 'coded_on')
 
 
 admin.site.register(HireMe, HireMeAdmin)

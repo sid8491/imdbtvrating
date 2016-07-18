@@ -75,26 +75,3 @@ def updateshowget(request):
     return updateshow(request)
 
 
-def show_graph(request, show_name):
-    show_name = string.capwords(show_name)
-    detail = sd.getshowdetails(show_name)
-    series_trend = sd.series_trend(detail['episode_dict'])
-    rating_list = series_trend['imdbRating']
-    scatterplot = plot([Scatter(
-        x=series_trend.index,
-        y=series_trend['imdbRating'],
-        mode='markers', marker=dict(size=10, color='rgb(255, 65, 54)'),
-        text=('S' + series_trend['Season'] + 'E' + series_trend['Episode']))],
-        output_type='div')
-    barplot = plot([Bar(
-        x=series_trend['Season'],
-        y=series_trend['imdbRating'], text=(series_trend['imdbRating']))],
-        output_type='div')
-    context = {
-        'detail': series_trend,
-        'rating_list': rating_list,
-        'div_scatterplot': scatterplot,
-        'div_barplot': barplot
-    }
-    return render(request, "show_rating/graph.html", context)
-    # return HttpResponse(series_trend['Season'])
