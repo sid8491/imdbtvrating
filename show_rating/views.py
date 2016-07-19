@@ -24,8 +24,10 @@ def show_detail(request, show_name):
             scatterplot = plot([Scatter(
                 x=series_trend.index,
                 y=series_trend['imdbRating'],
-                mode='markers', marker=dict(size=10, color='rgb(255, 65, 54)'),
-                text=('S' + series_trend['Season'] + 'E' + series_trend['Episode']))],
+                mode='markers', marker=dict(size=10,
+                                            color=series_trend['Season'],
+                                            colorscale='Viridis', showscale=True),
+                text=('S' + series_trend['Season'] + 'E' + series_trend['Episode'] + '<br>' + series_trend['Title']))],
                 output_type='div')
             barplot = plot([Bar(
                 x=series_trend['Season'],
