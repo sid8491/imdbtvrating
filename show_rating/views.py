@@ -21,35 +21,60 @@ def show_detail(request, show_name):
         detail = sd.getshowdetails(show_name)
         if 'Error' not in detail:
             series_trend = sd.series_trend(detail['episode_dict'])
-            scatterplot = plot([Scatter(
-            x=series_trend.index,
-            y=series_trend['imdbRating'],
-                mode='markers', marker=dict(size=10,
-                                            color=series_trend['Season'],
-                                            colorscale='Viridis', showscale=True),
-                text=('S' + series_trend['Season'] + 'E' + series_trend['Episode'] + '<br>' + series_trend['Title']))],
-                output_type='div')
+            # layout = Layout(
+            # plot_bgcolor='rgba(238, 238, 238, 1.0)',
+            # paper_bgcolor='rgba(238, 238, 238, 1.0)',
+            #
+            # )
+            layout = dict(
+                title=show_name,
+                titlefont=dict(
+                    family='Calibri, sans-serif',
+                    size=36,
+                ),
+                yaxis=dict(
+                    title='Rating',
+                    titlefont=dict(
+                        family='Arial, sans-serif',
+                        size=18,
+                    ),
+                    autorange=True,
+                ),
+                xaxis=dict(
+                    title='Episodes',
+                    titlefont=dict(
+                        family='Arial, sans-serif',
+                        size=18,
+                    ),
+                    autorange=True,
+                ),
+                plot_bgcolor='rgba(238, 238, 238, 1.0)',
+                paper_bgcolor='rgba(238, 238, 238, 1.0)',
+            )
+            data = Data([
+                Scatter(
+                    x=series_trend.index,
+                    y=series_trend['imdbRating'],
+                    mode='markers', marker=dict(size=10,
+                                                color=series_trend['Season'],
+                                                colorscale='Viridis', showscale=True),
+                    text=(
+                        'S' + series_trend['Season'] + 'E' + series_trend['Episode'] + '<br>' + series_trend['Title']))
+            ])
+            fig = Figure(data=data, layout=layout)
+            scatterplot = plot(fig, output_type='div')
+            # scatterplot = plot([Scatter(
+            # x=series_trend.index,
+            # y=series_trend['imdbRating'],
+            # mode='markers', marker=dict(size=10,
+            # color=series_trend['Season'],
+            # colorscale='Viridis', showscale=True),
+            # text=('S' + series_trend['Season'] + 'E' + series_trend['Episode'] + '<br>' + series_trend['Title']))],
+            # output_type='div')
             barplot = plot([Bar(
                 x=series_trend['Season'],
                 y=series_trend['imdbRating'], text=(series_trend['imdbRating']))],
                 output_type='div')
-            # scatterplot = plot(Figure(data=Data([
-            #     Scatter(
-            #         x=series_trend.index,
-            #         y=series_trend['imdbRating'],
-            #         mode='markers', marker=dict(size=10,
-            #                                     color=series_trend['Season'],
-            #                                     colorscale='Viridis', showscale=True),
-            #         text=('S' + series_trend['Season'] + 'E' + series_trend['Episode'] + '<br>' + series_trend['Title']))],
-            #     layout=Layout(
-            #         title='My tite',
-            #         # paper_bgcolor='rgba(12,150,30,10)',
-            #         plot_bgcolor='rgb(158,36,156)'
-            #     ))), output_type='div')
-            # barplot = plot([Bar(
-            #     x=series_trend['Season'],
-            #     y=series_trend['imdbRating'], text=(series_trend['imdbRating']))],
-            #     output_type='div')
             context = {
                 'detail': detail,
                 'title': show_name,

@@ -17,7 +17,23 @@
             well (or not well) it's been doing since it's release, which was the best season,
             best episodes etc etc.<br>
             So keep calm, and look up your favourite show!</p>
-        <p><a class="btn btn-primary btn-lg" href="{% url 'show' %}" role="button">TV Shows »</a></p>
+        <br>
+        <div class="row">
+            <div class="col col-lg-3"></div>
+            <div class="col col-lg-6">
+                <form class="form-inline" role="search" method="get" action="{% url 'show_rating.views.search_show' %}">
+                    <div class="form-group">
+                        <input type="text" class="form-control input-lg" name="q" value="" placeholder="Search TV Show">
+                        <button type="submit" class="btn btn-primary btn-lg">Search</button>
+                    </div>
+
+                </form>
+                <br><br>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-primary btn-lg" href="{% url 'show' %}" role="button">List of Top TV Shows »</a></p>
+            </div>
+            <div class="col col-lg-3"></div>
+        </div>
+
     </div>
 </div>
 </body>
