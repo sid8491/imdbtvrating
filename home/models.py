@@ -5,7 +5,7 @@ from ckeditor.fields import RichTextField
 class HireMe(models.Model):
     name = models.CharField(max_length=100, null=True, blank=True)
     email = models.EmailField()
-    number = models.CharField(max_length=30, null=True, blank=True)
+    number = models.CharField(max_length=30)
     comments = models.TextField()
     submit_date = models.DateTimeField(auto_now_add=True)
 
@@ -14,9 +14,9 @@ class HireMe(models.Model):
 
 
 class Suggestion(models.Model):
-    name = models.CharField(max_length=100, null=True, blank=True)
+    name = models.CharField(max_length=100)
     email = models.EmailField()
-    suggestion = models.TextField(null=True, blank=True)
+    suggestion = models.TextField()
     submit_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -25,9 +25,9 @@ class Suggestion(models.Model):
 
 class Projects(models.Model):
     name = models.CharField(max_length=255)
-    summary = models.TextField(null=True, blank=True)
+    summary = models.TextField()
     code = RichTextField()
-    coded_on = models.DateField(null=True, blank=True)
+    coded_on = models.DateField(auto_now_add=True)
 
     def __str__(self):
         return str(self.name)

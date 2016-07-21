@@ -7,13 +7,16 @@ from show_rating.logic import showdetails as sd
 import string
 from plotly.offline import plot
 from plotly.graph_objs import *
+from django.views.decorators.cache import never_cache
 
 
+@never_cache
 def show(request):
-    context = {'all_shows': ShowDetail.objects.all()}
+    context = {'all_shows': ShowDetail.objects.all().order_by('title')}
     return render(request, 'show_rating/show.html', context)
 
 
+@never_cache
 def show_detail(request, show_name):
     try:
         # checkfromdb = ShowDetail.objects.get(title=show_name)
@@ -21,11 +24,6 @@ def show_detail(request, show_name):
         detail = sd.getshowdetails(show_name)
         if 'Error' not in detail:
             series_trend = sd.series_trend(detail['episode_dict'])
-            # layout = Layout(
-            # plot_bgcolor='rgba(238, 238, 238, 1.0)',
-            # paper_bgcolor='rgba(238, 238, 238, 1.0)',
-            #
-            # )
             layout = dict(
                 title=show_name,
                 titlefont=dict(
@@ -63,14 +61,6 @@ def show_detail(request, show_name):
             ])
             fig = Figure(data=data, layout=layout)
             scatterplot = plot(fig, output_type='div')
-            # scatterplot = plot([Scatter(
-            # x=series_trend.index,
-            # y=series_trend['imdbRating'],
-            # mode='markers', marker=dict(size=10,
-            # color=series_trend['Season'],
-            # colorscale='Viridis', showscale=True),
-            # text=('S' + series_trend['Season'] + 'E' + series_trend['Episode'] + '<br>' + series_trend['Title']))],
-            # output_type='div')
             barplot = plot([Bar(
                 x=series_trend['Season'],
                 y=series_trend['imdbRating'], text=(series_trend['imdbRating']))],
@@ -115,11 +105,9 @@ def updateshowget(request):
     show1.story = context['Plot']
     show1.link = context['Link']
     show1.poster = context['Poster']
-    # show.link = 'www.' + show.title.lower().replace(" ", "") + '.com'
     show1.save()
     return updateshow(request)
 
 
 def search_show(request):
-    # return show_detail(request, request.GET['q'])
     return HttpResponseRedirect(reverse('show_detail', kwargs={'show_name': request.GET['q']}))

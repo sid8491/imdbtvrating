@@ -6,10 +6,66 @@
 </head>
 <body>
 {% include 'show_rating/header.html' %}
-<ul>
-{%  for show in all_shows %}
-    <li><h3><a href="{% url 'show_detail' show.title %}">{{ show.title }}</a> </h3> </li>
-{% endfor %}
-</ul>
+<div class="container-fluid">
+    {#    <div class="row">#}
+    {#        <div class="col col-lg-2"></div>#}
+    {#        <div class="col col-lg-8">#}
+    {#            <h1><u>List of Popular TV Shows</u></h1>#}
+    {#            <br>#}
+    {#            {% for show in all_shows %}#}
+    {#                {% ifchanged show.title.0 %}#}
+    {#                    <h1><span class="badge">{{ show.title.0 }}</span></h1>#}
+    {#                {% endifchanged %}#}
+    {#                <h3><a href="{% url 'show_detail' show.title %}">{{ show.title }}</a></h3>#}
+    {#            {% endfor %}#}
+    {#        </div>#}
+    {#        <div class="col col-lg-2"></div>#}
+    {#    </div>#}
+
+    <div class="container">
+        <h1><u>List of Popular TV Shows</u></h1><br>
+    </div>
+    <div class="row">
+        <div class="col col-lg-2"></div>
+        <div class="col col-lg-3">
+            {% for show in all_shows %}
+                {% ifchanged show.title.0 %}
+                    {% if show.title.0 >= 'A' and show.title.0 < 'I' %}
+                        <h1><span class="badge">{{ show.title.0 }}</span></h1>
+                    {% endif %}
+                {% endifchanged %}
+                {% if show.title.0 >= 'A' and show.title.0 < 'I' %}
+                    <h3><a href="{% url 'show_detail' show.title %}">{{ show.title }}</a></h3>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="col col-lg-3">
+            {% for show in all_shows %}
+                {% ifchanged show.title.0 %}
+                    {% if show.title.0 >= 'I' and show.title.0 < 'Q' %}
+                        <h1><span class="badge">{{ show.title.0 }}</span></h1>
+                    {% endif %}
+                {% endifchanged %}
+                {% if show.title.0 >= 'I' and show.title.0 < 'Q' %}
+                    <h3><a href="{% url 'show_detail' show.title %}">{{ show.title }}</a></h3>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="col col-lg-3">
+            {% for show in all_shows %}
+                {% ifchanged show.title.0 %}
+                    {% if show.title.0 >= 'Q' and show.title.0 <= 'Z' %}
+                        <h1><span class="badge">{{ show.title.0 }}</span></h1>
+                    {% endif %}
+                {% endifchanged %}
+                {% if show.title.0 >= 'Q' and show.title.0 <= 'Z' %}
+                    <h3><a href="{% url 'show_detail' show.title %}">{{ show.title }}</a></h3>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+
 </body>
 </html>
