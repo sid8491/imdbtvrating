@@ -1,14 +1,15 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.core.urlresolvers import reverse
-from django.http import HttpResponse
 from .models import HireMe, Suggestion, Projects
 from django.views.decorators.cache import never_cache
 
 
+@never_cache
 def home(request):
     return render(request, 'home/home.html')
 
 
+@never_cache
 def hireme(request):
     return render(request, 'home/hire.html')
 
@@ -39,6 +40,7 @@ def projects_details(request, project_name):
     return render(request, 'home/projects_details.html', context)
 
 
+@never_cache
 def suggestions(request):
     return render(request, 'home/suggestions.html')
 
@@ -52,6 +54,7 @@ def suggestionssubmit(request):
     return HttpResponseRedirect(reverse('suggestions'))
 
 
+@never_cache
 def contactus(request):
     return render(request, 'home/contactus.html')
 

@@ -10,13 +10,11 @@ from plotly.graph_objs import *
 from django.views.decorators.cache import never_cache
 
 
-@never_cache
 def show(request):
     context = {'all_shows': ShowDetail.objects.all().order_by('title')}
     return render(request, 'show_rating/show.html', context)
 
 
-@never_cache
 def show_detail(request, show_name):
     try:
         # checkfromdb = ShowDetail.objects.get(title=show_name)
@@ -61,10 +59,39 @@ def show_detail(request, show_name):
             ])
             fig = Figure(data=data, layout=layout)
             scatterplot = plot(fig, output_type='div')
-            barplot = plot([Bar(
-                x=series_trend['Season'],
-                y=series_trend['imdbRating'], text=(series_trend['imdbRating']))],
-                output_type='div')
+
+            layout_bar = dict(
+                yaxis=dict(
+                    title='Average Rating',
+                    titlefont=dict(
+                        family='Arial, sans-serif',
+                        size=18,
+                    ),
+                    autorange=True,
+                ),
+                xaxis=dict(
+                    title='Seasons',
+                    titlefont=dict(
+                        family='Arial, sans-serif',
+                        size=18,
+                    ),
+                    autorange=True,
+                ),
+                plot_bgcolor='rgba(238, 238, 238, 1.0)',
+                paper_bgcolor='rgba(238, 238, 238, 1.0)',
+            )
+            data_bar = Data([
+                Bar(
+                    x=series_trend['Season'],
+                    y=series_trend['imdbRating'],
+                    marker=dict(color=series_trend['Season'],
+                                colorscale='Viridis', showscale=False),
+                    hoverinfo='none',
+                ),
+            ])
+            fig_bar = Figure(data=data_bar, layout=layout_bar)
+            barplot = plot(fig_bar, output_type='div')
+
             context = {
                 'detail': detail,
                 'title': show_name,

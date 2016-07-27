@@ -31,18 +31,17 @@
 <!-- /container fluid -->
 
 <div class="container">
-    <form class="form-horizontal" method="post" action="{% url 'home.views.hiremesubmit' %}">
+    <form class="form-horizontal" method="post" action="{% url 'hiremesubmit' %}">
         {% csrf_token %}
         <fieldset>
             <legend>Contact Form</legend>
-
 
             <div class="form-group">
                 <label class="col-md-4 control-label" for="textinput">Name</label>
 
                 <div class="col-md-4">
                     <input id="textinput" name="name" placeholder="Enter name please" class="form-control input-md"
-                           type="text">
+                           type="text" required="true">
                     <span class="help-block"></span>
                 </div>
             </div>
@@ -52,8 +51,7 @@
 
                 <div class="col-md-4">
                     <input id="textinput" name="email" placeholder="Enter email address"
-                           class="form-control input-md"
-                           type="text">
+                           class="form-control input-md" type="text">
                     <span class="help-block"></span>
                 </div>
             </div>

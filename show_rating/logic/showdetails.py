@@ -61,3 +61,4 @@ def series_trend(detail):
 
 
 
+
