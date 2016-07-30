@@ -7,4 +7,3 @@ urlpatterns = [
     url(r'^(?P<show_name>[%&.:;+ \w]+)/$', views.show_detail, name='show_detail'),
     url(r'^search-show/$', views.search_show, name='search-show'),
 ]
-

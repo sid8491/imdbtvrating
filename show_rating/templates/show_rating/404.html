@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Page Not Found</title>
+</head>
+<body>
+{% include 'show_rating/header.html' %}
+
+404 page not found, image below
+{% load staticfiles %}
+<img src="{% static "show_rating/images/404.png" %}" alt="404 Page Not Found Image">
+</body>
+</html>

@@ -30,3 +30,4 @@ admin.site.site_title = "Admin Panel"
 admin.site.index_title = "Show analyzer"
 
 
+handler404 = 'show_rating.views.page_not_found'

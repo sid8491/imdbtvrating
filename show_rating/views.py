@@ -138,3 +138,8 @@ def updateshowget(request):
 
 def search_show(request):
     return HttpResponseRedirect(reverse('show_detail', kwargs={'show_name': request.GET['q']}))
+
+
+@never_cache
+def page_not_found(request):
+    return render(request, 'show_rating/404.html')

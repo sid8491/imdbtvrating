@@ -1,8 +1,7 @@
-
 body{
-    /*background: white url("../images/background.png");*/
-    background-color: #eee;
+    background: #eee;
 }
+
 .navbar {
     border-radius: 0;
     margin-bottom: 0;
