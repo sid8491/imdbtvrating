@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'qr1udj&=jam^sw6cm1@gb7s248)yx0h-8v553aifu5jzgh!v+y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -132,7 +132,7 @@ MARKDOWN_EDITOR_SKIN = 'simple'
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': 'fil:///var/tmp/django_cache',
+        'LOCATION': 'file:///var/tmp/django_cache',
         'TIMEOUT': 86400,  # 6 days - 24*60*60 = 86400
         'OPTIONS': {
             'MAX_ENTRIES': 1000
