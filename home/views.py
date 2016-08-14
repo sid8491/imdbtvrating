@@ -9,7 +9,6 @@ def home(request):
     return render(request, 'home/home.html')
 
 
-@never_cache
 def hireme(request):
     return render(request, 'home/hire.html')
 

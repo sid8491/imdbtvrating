@@ -16,7 +16,6 @@ def show(request):
     return render(request, 'show_rating/show.html', context)
 
 
-@never_cache
 def show_detail(request, show_name):
     try:
         show_name = string.capwords(show_name)
@@ -216,6 +215,5 @@ def search_show(request):
     # HttpResponse(request.GET['q'])
 
 
-@never_cache
 def page_not_found(request):
     return render(request, 'show_rating/404.html')

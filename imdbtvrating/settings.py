@@ -132,8 +132,8 @@ MARKDOWN_EDITOR_SKIN = 'simple'
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': '/var/tmp/django_cache',
-        'TIMEOUT': 0,  # 6 days - 24*60*60 = 86400
+        'LOCATION': 'fil:///var/tmp/django_cache',
+        'TIMEOUT': 86400,  # 6 days - 24*60*60 = 86400
         'OPTIONS': {
             'MAX_ENTRIES': 1000
         }
