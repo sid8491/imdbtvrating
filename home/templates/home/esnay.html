@@ -5,11 +5,11 @@
     <title>Esnay Productions</title>
     {% load static %}
     <!-- BOOTSTRAP STYLE SHEET -->
-    <script  type="text/css" src="{% static 'show_rating/esnay/css/bootstrap.css' %}"></script>
+    <link  rel="stylesheet" href="{% static 'show_rating/esnay/css/bootstrap.css' %}">
     <!-- FONT AWESOME ICONS STYLE SHEET -->
-    <script  type="text/css" src="{% static 'show_rating/esnay/css/font-awesome.css' %}"></script>
+    <link  rel="stylesheet" href="{% static 'show_rating/esnay/css/font-awesome.css' %}">
     <!-- CUSTOM STYLES -->
-    <script  type="text/css" src="{% static 'show_rating/esnay/css/style.css' %}"></script>
+    <link  rel="stylesheet" href="{% static 'show_rating/esnay/css/style.css' %}">
 
 
 </head>
@@ -19,8 +19,6 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">
                     Esnay
-                    <img src="{% static 'show_rating/esnay/img/logo.png' %}" alt="" class="img-responsive">
-{#                    <img src="{{ url_for('static', filename='img/logo.png') }}" alt="" class="img-responsive" />#}
                 </a>
             </div>
             <div class="navbar-collapse collapse navbar-right scroll-me">
@@ -43,9 +41,9 @@
                 <div class="col-md-8 col-md-offset-2 text-center">
 
                     <h1>ESNAY PRODUCTIONS </h1>
-                    <h2>Home of Creativity </h2>
+                    <h2>We Convey Your Dreams To The World</h2>
                     <p class="p-cls">
-                        Yaha pe kuch bhi likho. Blah blah blah...
+
                     </p>
                 </div>
             </div>
@@ -59,15 +57,14 @@
                 <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
                     <h2 class="head-set">OUR SERVICES</h2>
                     <p>
-                        Here you can write some short description about Services. </br >
-                        Two line description should look nice.
+                        We provide Walk-through, Videography (Advertisement, VFX, Short films), 2d/3d Animation and Designing and MUCH MORE.
                     </p>
                 </div>
             </div>
             <div class="row text-center">
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <i class="fa fa-recycle fa-2x"></i>
-                    <h4 class="head-set">Service 1</h4>
+                    <h4 class="head-set">Walk Through </h4>
                     <p>
                         The image icon is <mark>SMALL</mark>. All icon size shoud be same. </b >
                         Write small description about service 1. </br >
@@ -76,7 +73,7 @@
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <i class="fa fa-desktop  fa-3x"></i>
-                    <h4 class="head-set">Service 2 </h4>
+                    <h4 class="head-set">Video Production </h4>
                     <p>
                         The image icon is <mark>MEDIUM</mark>. All icon size shoud be same. </b >
                         Write small description about service 2. </br >
@@ -85,12 +82,41 @@
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <i class="fa fa-bolt  fa-4x"></i>
-                    <h4 class="head-set">100% FREE TO USE</h4>
+                    <h4 class="head-set">VFX</h4>
                     <p>
                         The image icon is <mark>LARGE</mark>. All icon size shoud be same. </b >
                         Write small description about service 2. </br >
                         2-4 lines should look nice.
                     </p>
+                </div>
+            </div>
+            <br>
+            <div class="row text-center">
+                <div class="col-md-4 col-sm-4 col-xs-12">
+{#                    <i class="fa fa-recycle fa-2x"></i>#}
+{#                    <h4 class="head-set">Walk Through </h4>#}
+{#                    <p>#}
+{#                        The image icon is <mark>SMALL</mark>. All icon size shoud be same. </b >#}
+{#                        Write small description about service 1. </br >#}
+{#                        2-4 lines should look nice.#}
+{#                    </p>#}
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <i class="fa fa-desktop  fa-3x"></i>
+                    <h4 class="head-set">More Services </h4>
+                    <p>
+                        We also provide below services:</br >
+                        Photoshoot, Event management, Graphic designing, E-card, Explainer videos, 3d visualization </br >
+                    </p>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+{#                    <i class="fa fa-bolt  fa-4x"></i>#}
+{#                    <h4 class="head-set">VFX</h4>#}
+{#                    <p>#}
+{#                        The image icon is <mark>LARGE</mark>. All icon size shoud be same. </b >#}
+{#                        Write small description about service 2. </br >#}
+{#                        2-4 lines should look nice.#}
+{#                    </p>#}
                 </div>
             </div>
         </div>
@@ -105,25 +131,25 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-sm-4">
                         <div>
-                            <strong>LOL</strong>
+                            <strong></strong>
                             <p>
-                                ROFL
+
                             </p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4">
                         <div>
-                            <strong>LOLlol</strong>
+                            <strong></strong>
                             <p>
-                                ROFLol
+
                             </p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4 ">
                         <div>
-                            <strong>haha</strong>
+                            <strong></strong>
                             <p>
-                                LOLROFL
+
                             </p>
                         </div>
                     </div>
@@ -204,10 +230,12 @@
             </div>
             <div class="row text-center">
                 <div class="col-md-12">
-                    <h3>Bhoot Bangla, Chhoo Mantar Gali,</h3>
-                    <h3>Aliganj, Lucknow.</h3>
+                    <h3>B-4/13, <br >
+                        MDH Sector-H, Jankipuram, <br >
+                        Near Sahara States, <br>
+                        Lucknow</h3>
                     <h3>Pin : 226021</h3>
-                    <h3><strong>Email :</strong> admin@esnayproductions.com</h3>
+                    <h3><strong>Email :</strong> nishantesnay.2@gmail.com</h3>
                 </div>
             </div>
         </div>
@@ -242,9 +270,11 @@
 
     <!-- REQUIRED SCRIPTS FILES -->
     <!-- CORE JQUERY FILE -->
-    <script  type="text/javascript" src="{% static 'show_rating/esnay/js/jquery-1.11.1.js' %}"></script>
+{#    <script  type="text/javascript" src="{% static 'show_rating/esnay/js/jquery-1.11.1.js' %}"></script>#}
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <!-- REQUIRED BOOTSTRAP SCRIPTS -->
-    <script  type="text/javascript" src="{% static 'show_rating/esnay/js/bootstrap.js' %}"></script>
+{#    <script  type="text/javascript" src="{% static 'show_rating/esnay/js/bootstrap.js' %}"></script>#}
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- BACKGROUND VIDEO PLUGIN  -->
     <script  type="text/javascript" src="{% static 'show_rating/esnay/js/jquery.mb.YTPlayer.js' %}"></script>
     <!-- SCROLLING SCRIPTS PLUGIN  -->
