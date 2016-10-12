@@ -58,3 +58,6 @@ def contactus(request):
     return render(request, 'home/contactus.html')
 
 
+@never_cache
+def esnay(request):
+    return render(request, 'home/esnay.html')

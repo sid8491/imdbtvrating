@@ -1,0 +1,259 @@
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <title>Esnay Productions</title>
+    {% load static %}
+    <!-- BOOTSTRAP STYLE SHEET -->
+    <script  type="text/css" src="{% static 'show_rating/esnay/css/bootstrap.css' %}"></script>
+    <!-- FONT AWESOME ICONS STYLE SHEET -->
+    <script  type="text/css" src="{% static 'show_rating/esnay/css/font-awesome.css' %}"></script>
+    <!-- CUSTOM STYLES -->
+    <script  type="text/css" src="{% static 'show_rating/esnay/css/style.css' %}"></script>
+
+
+</head>
+<body>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    Esnay
+                    <img src="{% static 'show_rating/esnay/img/logo.png' %}" alt="" class="img-responsive">
+{#                    <img src="{{ url_for('static', filename='img/logo.png') }}" alt="" class="img-responsive" />#}
+                </a>
+            </div>
+            <div class="navbar-collapse collapse navbar-right scroll-me">
+                <ul class="nav navbar-nav ">
+                    <li><a href="#home">HOME</a></li>
+                    <li><a href="#services">SERVICES</a></li>
+                    <li><a href="#works">WORKS</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <!-- NAVBAR CODE END -->
+
+    <div id="home">
+        <div class="overlay">
+            <!-- overylay class usage -->
+            <div class="container">
+                <div class="col-md-8 col-md-offset-2 text-center">
+
+                    <h1>ESNAY PRODUCTIONS </h1>
+                    <h2>Home of Creativity </h2>
+                    <p class="p-cls">
+                        Yaha pe kuch bhi likho. Blah blah blah...
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--HOME SECTION END  -->
+
+    <section id="services">
+        <div class="container">
+            <div class="row text-center pad-bottom">
+                <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+                    <h2 class="head-set">OUR SERVICES</h2>
+                    <p>
+                        Here you can write some short description about Services. </br >
+                        Two line description should look nice.
+                    </p>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <i class="fa fa-recycle fa-2x"></i>
+                    <h4 class="head-set">Service 1</h4>
+                    <p>
+                        The image icon is <mark>SMALL</mark>. All icon size shoud be same. </b >
+                        Write small description about service 1. </br >
+                        2-4 lines should look nice.
+                    </p>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <i class="fa fa-desktop  fa-3x"></i>
+                    <h4 class="head-set">Service 2 </h4>
+                    <p>
+                        The image icon is <mark>MEDIUM</mark>. All icon size shoud be same. </b >
+                        Write small description about service 2. </br >
+                        2-4 lines should look nice.
+                    </p>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <i class="fa fa-bolt  fa-4x"></i>
+                    <h4 class="head-set">100% FREE TO USE</h4>
+                    <p>
+                        The image icon is <mark>LARGE</mark>. All icon size shoud be same. </b >
+                        Write small description about service 2. </br >
+                        2-4 lines should look nice.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+    <!--SERVICES SECTION END  -->
+
+    <div class="parallax-like">
+        <div class="overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        <div>
+                            <strong>LOL</strong>
+                            <p>
+                                ROFL
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        <div>
+                            <strong>LOLlol</strong>
+                            <p>
+                                ROFLol
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 ">
+                        <div>
+                            <strong>haha</strong>
+                            <p>
+                                LOLROFL
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--PARALLAX LIKE / STATS SECTION END  -->
+
+    <section id="works">
+        <div class="container">
+            <div class="row text-center pad-bottom">
+                <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+                    <h2 class="head-set">OUR WORKS</h2>
+                    <p>
+                        Small paragraph about work. 2-3 lines should be fine. </br >
+                        Keep it simple.
+                    </p>
+                </div>
+            </div>
+            <div class="row text-center portfolio-item">
+
+                <div class="col-md-4 col-sm-4 ">
+                    <div class="alert alert-info">
+                        <h2>jojojoj</h2>
+                        <img src="{% static "show_rating/esnay/img/1.png" %}" alt="My image"/>
+
+                        <h3>Project Title </h3>
+                        <h5><a href="#"><strong>Click Here</strong> </a>to go to the project</h5>
+                    </div>
+
+                </div>
+                <div class="col-md-4 col-sm-4 ">
+                    <div class="alert alert-danger">
+                        <img src="{% static "show_rating/esnay/img/2.png" %}" alt="My image"/>
+
+                        <h3>Project Title </h3>
+                        <h5><a href="#"><strong>Click Here</strong> </a>to go to the project</h5>
+                    </div>
+
+                </div>
+                <div class="col-md-4 col-sm-4 ">
+                    <div class="alert alert-success">
+                        <img src="{% static "show_rating/esnay/img/3.png" %}" alt="My image"/>
+
+                        <h3>Project Title </h3>
+                        <h5><a href="#"><strong>Click Here</strong> </a>to go to the project</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--WORKS / PORTFOLIO SECTION END  -->
+
+    <div id="video-sec" class="player" data-property="{videoURL:'https://www.youtube.com/watch?v=SMfudissxNA',containment:'self',autoPlay:true, mute:true, startAt:0, opacity:1,mute: true,showControls:false}">
+        <div class="overlay">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-12">
+                        <h1>THIS IS BACKGROUND VIDEO</h1>
+                        <h4>You can add a description here too.</h4>
+                        <h5>It will be played directly from youtube.</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- VIDEO SECTION END-->
+
+    <section id="contact">
+        <div class="container">
+            <div class="row text-center ">
+                <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+                    <h2 class="head-set">OUR OFFICE LOCATION</h2>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <h3>Bhoot Bangla, Chhoo Mantar Gali,</h3>
+                    <h3>Aliganj, Lucknow.</h3>
+                    <h3>Pin : 226021</h3>
+                    <h3><strong>Email :</strong> admin@esnayproductions.com</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- CONTACT SECTION END-->
+
+    <section id="clients">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <img src="{% static "show_rating/esnay/img/audio.png" %}" alt="My image"/>
+            </div>
+            <div class="col-md-3">
+                <img src="{% static "show_rating/esnay/img/codecanon.png" %}" alt="My image"/>
+            </div>
+            <div class="col-md-3">
+                <img src="{% static "show_rating/esnay/img/graphic.png" %}" alt="My image"/>
+            </div>
+            <div class="col-md-3">
+                <img src="{% static "show_rating/esnay/img/themeforest.png" %}" alt="My image"/>
+            </div>
+        </div>
+    </div>
+        </section>
+    <!-- CLIENTS SECTION END-->
+
+    <footer>
+        © 2015 esnayproductions.com  | <a href="http://www.google.com/" target="_blank">by Esnay Productions</a>
+    </footer>
+    <!-- FOOTER SECTION END-->
+
+
+    <!-- REQUIRED SCRIPTS FILES -->
+    <!-- CORE JQUERY FILE -->
+    <script  type="text/javascript" src="{% static 'show_rating/esnay/js/jquery-1.11.1.js' %}"></script>
+    <!-- REQUIRED BOOTSTRAP SCRIPTS -->
+    <script  type="text/javascript" src="{% static 'show_rating/esnay/js/bootstrap.js' %}"></script>
+    <!-- BACKGROUND VIDEO PLUGIN  -->
+    <script  type="text/javascript" src="{% static 'show_rating/esnay/js/jquery.mb.YTPlayer.js' %}"></script>
+    <!-- SCROLLING SCRIPTS PLUGIN  -->
+    <script  type="text/javascript" src="{% static 'show_rating/esnay/js/jquery.easing.min.js' %}"></script>
+    <!-- CUSTOM SCRIPTS   -->
+    <script  type="text/javascript" src="{% static 'show_rating/esnay/js/custom.js' %}"></script>
+
+
+
+</body>
+
+</html>

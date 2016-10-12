@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'qr1udj&=jam^sw6cm1@gb7s248)yx0h-8v553aifu5jzgh!v+y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -129,16 +129,16 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 MARKDOWN_EDITOR_SKIN = 'simple'
 
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': 'file:///var/tmp/django_cache',
-        'TIMEOUT': 86400,  # 6 days - 24*60*60 = 86400
-        'OPTIONS': {
-            'MAX_ENTRIES': 1000
-        }
-    }
-}
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+#         'LOCATION': 'file:///var/tmp/django_cache',
+#         'TIMEOUT': 86400,  # 6 days - 24*60*60 = 86400
+#         'OPTIONS': {
+#             'MAX_ENTRIES': 1000
+#         }
+#     }
+# }
 
 MIDDLEWARE_CLASSES += [
     'django.middleware.cache.UpdateCacheMiddleware',
